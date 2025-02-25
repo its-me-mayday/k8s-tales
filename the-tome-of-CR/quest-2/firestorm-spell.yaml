@@ -1,0 +1,8 @@
+---
+apiVersion: magic.mayday/v1
+kind: Spell
+metadata:
+  name: firestorm
+spec:
+  incantation: "Ignis!"
+  powerLevel: 9000
