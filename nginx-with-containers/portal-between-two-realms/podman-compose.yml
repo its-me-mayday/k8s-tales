@@ -1,0 +1,21 @@
+version: '3'
+services:
+  fant:
+    build: ./fant
+    container_name: fant
+    ports:
+      - "3000:3000"
+  asia:
+    build: ./asia
+    container_name: asia
+    ports:
+      - "5000:5000"
+
+  nginx:
+    build: ./portal
+    container_name: reverse-proxy
+    ports:
+      - "8080:80"
+    depends_on:
+      - fant
+      - asia
