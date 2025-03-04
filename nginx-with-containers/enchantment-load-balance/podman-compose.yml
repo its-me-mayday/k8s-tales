@@ -1,0 +1,27 @@
+version: '3'
+services:
+  militare_1:
+    build: ./militare
+    container_name: militare_1
+    environment:
+      - ID=1
+  militare_2:
+    build: ./militare
+    container_name: militare_2
+    environment:
+      - ID=2
+  militare_3:
+    build: ./militare
+    container_name: militare_3
+    environment:
+      - ID=3
+
+  nginx:
+    build: ./nginx
+    container_name: balancer
+    ports:
+      - "8080:80"
+    depends_on:
+      - militare_1
+      - militare_2
+      - militare_3

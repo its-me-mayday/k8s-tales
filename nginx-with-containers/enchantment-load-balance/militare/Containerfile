@@ -1,0 +1,6 @@
+from node:23.9.0
+workdir /app
+copy server.js .
+copy package.json .
+run npm install
+cmd ["node", "server.js"]
