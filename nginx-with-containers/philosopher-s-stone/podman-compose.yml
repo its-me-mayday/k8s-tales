@@ -1,0 +1,13 @@
+version: '3'
+services:
+  application:
+    build: ./app
+    container_name: application
+
+  nginx:
+    build: ./nginx
+    container_name: reverse-proxy
+    ports:
+      - "8080:80"
+    depends_on:
+      - application
